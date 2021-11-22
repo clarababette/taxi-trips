@@ -7,8 +7,8 @@ env:
 
 before_script:
   - psql -c 'create database  taxi_tests;' -U postgres
-  - psql -U postgres -d fruit_app_tests -a -f sql/tables.sql
-  - psql -U postgres -d fruit_app_tests -a -f sql/data.sql
+  - psql -U postgres -d taxi_tests -a -f sql/tables.sql
+  - psql -U postgres -d taxi_tests -a -f sql/data.sql
 
 services:
   - postgresql
