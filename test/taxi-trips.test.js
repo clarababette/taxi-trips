@@ -118,39 +118,36 @@ describe('Taxi Trips', function () {
   });
 
   it('find the total income for each taxi', async function () {
-      const taxiTrips = TaxiTripTracker(pool);
-      const taxiTotals = [
-          { reg_number: 'CA 934 672', total_income: '77.00' },
-          { reg_number: 'ND 284 983', total_income: '93.00' },
-          { reg_number: 'CAA 204 852', total_income: '67.50' },
-          { reg_number: 'ND 233 034', total_income: '140.00' },
-          { reg_number: 'SL21BE GP', total_income: '64.50' },
-          { reg_number: 'XP38DY GP', total_income: '36.50' },
-          { reg_number: 'ND 294 824', total_income: '107.00' },
-          { reg_number: 'VS34SF GP', total_income: '36.50' },
-          { reg_number: 'CA 359 249', total_income: '61.00' }
-      ];
-      const result =  await taxiTrips.findTotalIncomePerTaxi()
-    assert.deepStrictEqual(
-      result.sort(),
-     result.sort()
-    );
+    const taxiTrips = TaxiTripTracker(pool);
+    const taxiTotals = [
+      {reg_number: 'CA 934 672', total_income: '77.00'},
+      {reg_number: 'ND 284 983', total_income: '93.00'},
+      {reg_number: 'CAA 204 852', total_income: '67.50'},
+      {reg_number: 'ND 233 034', total_income: '140.00'},
+      {reg_number: 'SL21BE GP', total_income: '64.50'},
+      {reg_number: 'XP38DY GP', total_income: '36.50'},
+      {reg_number: 'ND 294 824', total_income: '107.00'},
+      {reg_number: 'VS34SF GP', total_income: '36.50'},
+      {reg_number: 'CA 359 249', total_income: '61.00'},
+    ];
+    const result = await taxiTrips.findTotalIncomePerTaxi();
+    assert.deepStrictEqual(result.sort(), result.sort());
   });
 
   it('find the total income for all the taxis', async function () {
     const taxiTrips = TaxiTripTracker(pool);
     assert.deepStrictEqual(683, await taxiTrips.findTotalIncome());
   });
-    
-    it('find the total income for each region', async function () {
-        const taxiTrips = TaxiTripTracker(pool);
-        const regionTotals = [
-  { region: 'Durban', total_income: '340.00' },
-  { region: 'Cape Town', total_income: '205.50' },
-  { region: 'Gauteng', total_income: '137.50' }
-        ]
-        const result = await taxiTrips.findTotalIncomeByRegion()
-    assert.deepStrictEqual(regionTotals.sort(), result.sort() );
+
+  it('find the total income for each region', async function () {
+    const taxiTrips = TaxiTripTracker(pool);
+    const regionTotals = [
+      {region: 'Cape Town', total_income: '205.50'},
+      {region: 'Durban', total_income: '340.00'},
+      {region: 'Gauteng', total_income: '137.50'},
+    ];
+    const result = await taxiTrips.findTotalIncomeByRegion();
+    assert.deepStrictEqual(regionTotals.sort(), result.sort());
   });
 
   after(function () {

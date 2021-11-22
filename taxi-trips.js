@@ -33,7 +33,7 @@ export default function TaxiTripTracker(pool) {
     return parseFloat(result.rows[0]['total_income']);
   };
   const findTotalIncomeByRegion = async () => {
-    const result = await pool.query('SELECT region.name AS region, SUM(route.cost) AS total_income FROM trip JOIN route ON route_id = route.id JOIN region ON route.region_id = region.id GROUP BY region.name');
+    const result = await pool.query('SELECT region.name AS region, SUM(route.cost) AS total_income FROM trip JOIN route ON route_id = route.id JOIN region ON route.region_id = region.id GROUP BY region.name ORDER BY region.name');
     return result.rows;
     
   };
