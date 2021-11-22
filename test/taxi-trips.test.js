@@ -121,15 +121,15 @@ describe('Taxi Trips', function () {
     const taxiTrips = TaxiTripTracker(pool);
     assert.deepStrictEqual(
       [
-    { reg_number: 'CA 359 249', total_income: '61.00' },
-    { reg_number: 'CAA 204 852', total_income: '67.50' },
-    { reg_number: 'ND 233 034', total_income: '140.00' },
-    { reg_number: 'SL21BE GP', total_income: '64.50' },
-    { reg_number: 'XP38DY GP', total_income: '36.50' },
-    { reg_number: 'CA 934 672', total_income: '77.00' },
-    { reg_number: 'ND 294 824', total_income: '107.00' },
-    { reg_number: 'ND 284 983', total_income: '93.00' },
-    { reg_number: 'VS34SF GP', total_income: '36.50' }
+          { reg_number: 'CAA 204 852', total_income: '67.50' },
+          { reg_number: 'ND 233 034', total_income: '140.00' },
+          { reg_number: 'SL21BE GP', total_income: '64.50' },
+          { reg_number: 'XP38DY GP', total_income: '36.50' },
+          { reg_number: 'CA 934 672', total_income: '77.00' },
+          { reg_number: 'ND 294 824', total_income: '107.00' },
+          { reg_number: 'ND 284 983', total_income: '93.00' },
+          { reg_number: 'VS34SF GP', total_income: '36.50' },
+          { reg_number: 'CA 359 249', total_income: '61.00' }
   ],
       await taxiTrips.findTotalIncomePerTaxi(),
     );

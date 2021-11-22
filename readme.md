@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/clarababette/taxi-trips.svg?branch=main)](https://app.travis-ci.com/clarababette/taxi-trips)
+
 # Taxi trips
 
 A local study is looking into the national minibus taxi industry in South Africa and they need help analyzing some data.
