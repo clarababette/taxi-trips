@@ -12,7 +12,8 @@ export default function TaxiTripTracker(pool) {
     return result.rows.map(taxi => taxi.reg_number);
   };
   const findTripsByRegNumber = async (regNum) => {
-    const result = await pool.query('SELECT route.name AS route FROM trip JOIN route ON route_id = route.id JOIN taxi ON taxi_id = taxi.id WHERE taxi.reg_number = $1', [regNum]);
+    const result = await pool.query('SELECT route.name AS route FROM trip JOIN route ON route_id = route.id JOIN taxi ON taxi_id = taxi.id WHERE taxi.reg_number = $1 ORDER BY route.name', [regNum]);
+    console.log(result.rows)
     return result.rows;
   };
   const findTripsByRegion = async (region) => {
@@ -25,7 +26,8 @@ export default function TaxiTripTracker(pool) {
     return parseFloat(result.rows[0]['total_income']);
   };
   const findTotalIncomePerTaxi = async () => {
-    const result = await pool.query('SELECT taxi.reg_number, SUM(route.cost) AS total_income FROM trip JOIN route ON route_id = route.id JOIN taxi ON taxi_id = taxi.id GROUP BY taxi.reg_number');
+    const result = await pool.query('SELECT taxi.reg_number, SUM(route.cost) AS total_income FROM trip JOIN route ON route_id = route.id JOIN taxi ON taxi_id = taxi.id GROUP BY taxi.reg_number ORDER BY taxi.reg_number');
+    console.log(result.rows);
     return result.rows;
   };
   const findTotalIncome = async () => {
