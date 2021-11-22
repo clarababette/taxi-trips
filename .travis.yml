@@ -6,7 +6,7 @@ env:
   - DATABASE_URL=postgresql://postgres@localhost:5432/taxi_tests
 
 before_script:
-  - psql -c 'create database  fruit_app_tests;' -U postgres
+  - psql -c 'create database  taxi_tests;' -U postgres
   - psql -U postgres -d fruit_app_tests -a -f sql/tables.sql
   - psql -U postgres -d fruit_app_tests -a -f sql/data.sql
 
